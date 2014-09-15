@@ -52,3 +52,15 @@ docs/_build/
 
 # PyBuilder
 target/
+
+dist
+build
+*.dat
+*.egg*
+*.pyc
+*.swp
+*.log
+*~
+
+MANIFEST
+.DS_Store

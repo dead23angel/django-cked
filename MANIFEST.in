@@ -1,0 +1,18 @@
+include AUTHORS
+include LICENSE
+include CHANGES
+include README.rst
+recursive-include cked *.html
+recursive-include cked *.css
+recursive-include cked *.js
+recursive-include cked *.png
+recursive-include cked *.gif
+
+recursive-include cked/templates *.html
+recursive-include cked/static *.css
+recursive-include cked/static *.js
+recursive-include cked/static *.png
+recursive-include cked/static *.gif
+
+recursive-include cked/static *
+recursive-include cked/templates *
