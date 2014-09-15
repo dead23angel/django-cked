@@ -29,6 +29,7 @@ or
 ```python
 
     pip install -e git+git://github.com/dead23angel/django-cked.git@master
+
     
 ```
 
@@ -54,7 +55,7 @@ And add CKEd URL include to your project **urls.py** file:
 ```python
 
     url(r'^cked/', include('cked.urls')),
-    
+
 ```
 
 Settings
@@ -69,7 +70,7 @@ Usage
 -----
 
 Model field
-~~~~~~~~~~~
+===========
 
 ```python
 
@@ -83,7 +84,7 @@ Model field
 ```
 
 Widget
-~~~~~~
+======
 
 ```python
 
