@@ -28,7 +28,7 @@ or
 
 ```python
 
-    pip install -e git+git://https://github.com/dead23angel/django-cked.git@master
+    pip install -e git+git://github.com/dead23angel/django-cked.git@master
     
 ```
 
