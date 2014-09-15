@@ -28,7 +28,7 @@ or
 
 ```python
 
-    pip install -e hg+https://bitbucket.org/CWTeam/django-cked#egg=django-cked
+    pip install -e git+git://https://github.com/dead23angel/django-cked.git@master
     
 ```
 
@@ -79,7 +79,7 @@ Model field
 
     class Entry(models.Model):
         text = RichTextField()
-        
+
 ```
 
 Widget
