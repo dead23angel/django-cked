@@ -12,8 +12,8 @@ Django CKEd
 Provides a **RichTextField** and **CKEditorWidget** with upload and
 browse support.
 
-![alt text](https://bitbucket.org/CWTeam/django-cked/raw/default/img/ckeditor.jpg "CKEditor")
-![alt text](https://bitbucket.org/CWTeam/django-cked/raw/default/img/elfinder.jpg "elFinder")
+![alt text](https://github.com/dead23angel/django-cked/blob/master/img/ckeditor.jpg "CKEditor")
+![alt text](https://github.com/dead23angel/django-cked/blob/master/img/elfinder.jpg "elFinder")
 
 Installation
 ------------
