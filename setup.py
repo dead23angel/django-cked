@@ -15,7 +15,7 @@ setup(
     description=('CKEditor and elFinder integration for Django Framework.'),
     license='BSD',
     keywords='django, ckeditor, elfinder, wysiwyg, upload',
-    url='https://bitbucket.org/CWTeam/django-cked',
+    url='https://github.com/dead23angel/django-cked',
     packages=find_packages(),
     long_description=read('README.rst'),
 
