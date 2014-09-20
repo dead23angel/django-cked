@@ -16,14 +16,16 @@ setup(
     license='BSD',
     keywords='django, ckeditor, elfinder, wysiwyg, upload',
     url='https://github.com/dead23angel/django-cked',
+    download_url = 'https://github.com/dead23angel/django-cked/tarball/master',
     packages=find_packages(),
     long_description=read('README.rst'),
 
     classifiers = [
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: BSD License',
         'Operating System :: Unix',
         'Environment :: Web Environment',
+        'Framework :: Django',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
