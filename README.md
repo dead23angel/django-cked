@@ -33,6 +33,11 @@ or
     
 ```
 
+Demo
+----
+
+We have prepared a demo project is available on the link https://github.com/DOOMer/django-cked-demo to demonstrate the application.
+
 Configuration
 -------------
 
