@@ -96,8 +96,8 @@ class connector():
     }
 
     _fileoptions = {
-        'fileMode': '0644',
-        'dirMode': '0755',
+        'fileMode': 0644,
+        'dirMode': 0755,
         'fileMode3': 0o644,
         'dirMode3': 0o755,
     }

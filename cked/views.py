@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
 
@@ -19,6 +20,7 @@ except ImportError:
 json_encode = json.JSONEncoder().encode
 
 
++@login_required(login_url='/login')
 def elfinder(request):
     options = default_settings.ELFINDER_DEFAULT_OPTIONS.copy()
     options['url'] = reverse('cked_elfinder_connector')
@@ -39,6 +41,7 @@ def elfinder(request):
 
 
 @csrf_exempt
+@login_required
 def elfinder_connector(request):
     elf = elFinder.connector(settings.ELFINDER_OPTIONS)
     req = {}
