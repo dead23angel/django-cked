@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-cked',
-    version='0.1.0',
+    version='0.1.1',
     author='Ivan Gorochov',
     author_email='cwteam@bk.ru',
     description=('CKEditor and elFinder integration for Django Framework.'),
