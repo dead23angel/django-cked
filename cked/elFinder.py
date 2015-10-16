@@ -96,10 +96,8 @@ class connector():
     }
 
     _fileoptions = {
-        'fileMode': 0644,
-        'dirMode': 0755,
-        'fileMode3': 0o644,
-        'dirMode3': 0o755,
+		'fileMode': '0644',
+        'dirMode': '0755',
     }
 
     _time = 0
@@ -347,10 +345,7 @@ class connector():
             self._response['error'] = 'File or folder with the same name already exists'
         else:
             try:
-                try:
-                    os.mkdir(newDir, int(self._fileoptions['dirMode3']))
-                except:
-                    os.mkdir(newDir, int(self._fileoptions['dirMode']))
+                os.mkdir(newDir, int(self._fileoptions['dirMode']))
                 self._response['select'] = [self.__hash(newDir)]
                 self.__content(path, True)
             except:
@@ -440,77 +435,40 @@ class connector():
             total = 0
             upSize = 0
             maxSize = self._options['uploadMaxSize'] * 1024 * 1024
-            try:
-                for name, data in upFiles.iteritems():
-                    if name:
-                        total += 1
-                        name = os.path.basename(name)
-                        if not self.__checkName(name):
-                            self.__errorData(name, 'Invalid name')
-                        else:
-                            name = os.path.join(curDir, name)
-                            try:
-                                f = open(name, 'wb', self._options['uploadWriteChunk'])
-                                for chunk in self.__fbuffer(data):
-                                    f.write(chunk)
-                                f.close()
-                                upSize += os.lstat(name).st_size
-                                if self.__isUploadAllow(name):
-                                    os.chmod(name, self._fileoptions['fileMode'])
-                                    self._response['select'].append(self.__hash(name))
-                                else:
-                                    self.__errorData(name, 'Not allowed file type')
-                                    try:
-                                        os.unlink(name)
-                                    except:
-                                        pass
-                            except:
-                                self.__errorData(name, 'Unable to save uploaded file')
-                            if upSize > maxSize:
+            for name, data in upFiles.iteritems():
+                if name:
+                    total += 1
+                    name = os.path.basename(name)
+                    if not self.__checkName(name):
+                        self.__errorData(name, 'Invalid name')
+                    else:
+                        name = os.path.join(curDir, name)
+                        try:
+                            f = open(name, 'wb', self._options['uploadWriteChunk'])
+                            for chunk in self.__fbuffer(data):
+                                f.write(chunk)
+                            f.close()
+                            upSize += os.lstat(name).st_size
+                            if self.__isUploadAllow(name):
+                                os.chmod(name, int(self._fileoptions['fileMode']))
+                                self._response['select'].append(self.__hash(name))
+                            else:
+                                self.__errorData(name, 'Not allowed file type')
                                 try:
                                     os.unlink(name)
-                                    self.__errorData(name, 'File exceeds the maximum allowed filesize')
                                 except:
                                     pass
-                                    # TODO ?
-                                    self.__errorData(name, 'File was only partially uploaded')
-                                break
-            except:
-                for name, data in upFiles.items():
-                    if name:
-                        total += 1
-                        name = os.path.basename(name)
-                        if not self.__checkName(name):
-                            self.__errorData(name, 'Invalid name')
-                        else:
-                            name = os.path.join(curDir, name)
+                        except:
+                            self.__errorData(name, 'Unable to save uploaded file')
+                        if upSize > maxSize:
                             try:
-                                f = open(name, 'wb', self._options['uploadWriteChunk'])
-                                for chunk in self.__fbuffer(data):
-                                    f.write(chunk)
-                                f.close()
-                                upSize += os.lstat(name).st_size
-                                if self.__isUploadAllow(name):
-                                    os.chmod(name, self._fileoptions['fileMode3'])
-                                    self._response['select'].append(self.__hash(name))
-                                else:
-                                    self.__errorData(name, 'Not allowed file type')
-                                    try:
-                                        os.unlink(name)
-                                    except:
-                                        pass
+                                os.unlink(name)
+                                self.__errorData(name, 'File exceeds the maximum allowed filesize')
                             except:
-                                self.__errorData(name, 'Unable to save uploaded file')
-                            if upSize > maxSize:
-                                try:
-                                    os.unlink(name)
-                                    self.__errorData(name, 'File exceeds the maximum allowed filesize')
-                                except:
-                                    pass
+                                pass
                                     # TODO ?
-                                    self.__errorData(name, 'File was only partially uploaded')
-                                break
-
+                                self.__errorData(name, 'File was only partially uploaded')
+                            break
             if self._errorData:
                 if len(self._errorData) == total:
                     self._response['error'] = 'Unable to upload files'
@@ -1548,4 +1506,3 @@ class connector():
         #     self.__debug('invalid encoding', name)
             #name += ' (invalid encoding)'
         return name
-
