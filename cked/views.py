@@ -20,7 +20,7 @@ except ImportError:
 json_encode = json.JSONEncoder().encode
 
 
-+@login_required(login_url='/login')
+@login_required(login_url='/login')
 def elfinder(request):
     options = default_settings.ELFINDER_DEFAULT_OPTIONS.copy()
     options['url'] = reverse('cked_elfinder_connector')
