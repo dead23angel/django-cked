@@ -1,12 +1,6 @@
 Django CKEd
 ===========
 
-![alt text](https://pypip.in/version/django-cked/badge.svg "Latest Version")
-![alt text](https://pypip.in/download/django-cked/badge.svg "Downloads")
-![alt text](https://pypip.in/py_versions/django-cked/badge.svg "Supported Python versions")
-![alt text](https://pypip.in/status/django-cked/badge.svg "Development Status")
-![alt text](https://pypip.in/license/django-cked/badge.svg "License")
-
 **CKEditor and elFinder integration for Django Framework.**
 
 Provides a **RichTextField** and **CKEditorWidget** with upload and

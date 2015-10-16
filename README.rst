@@ -1,8 +1,6 @@
 Django CKEd
 ===========
 
-|PyPI version| |Downloads| |Python versions| |Development Status| |License|
-
 **CKEditor and elFinder integration for Django Framework.**
 
 Provides a ``RichTextField`` and ``CKEditorWidget`` with upload and
@@ -87,23 +85,3 @@ media to your template:
 
 .. |CKEditor| image:: https://bitbucket.org/CWTeam/django-cked/raw/default/img/ckeditor.jpg
 .. |elFinder| image:: https://bitbucket.org/CWTeam/django-cked/raw/default/img/elfinder.jpg
-
-.. |PyPI version| image:: https://pypip.in/version/django-cked/badge.svg
-    :target: https://pypi.python.org/pypi/django-cked/
-    :alt: Latest Version
-
-.. |Downloads| image:: https://pypip.in/download/django-cked/badge.svg
-    :target: https://pypi.python.org/pypi//django-cked/
-    :alt: Downloads
-
-.. |Python versions| image:: https://pypip.in/py_versions/django-cked/badge.svg
-    :target: https://pypi.python.org/pypi/django-cked/
-    :alt: Supported Python versions
-
-.. |Development Status| image:: https://pypip.in/status/django-cked/badge.svg
-    :target: https://pypi.python.org/pypi/django-cked/
-    :alt: Development Status
-
-.. |License| image:: https://pypip.in/license/django-cked/badge.svg
-    :target: https://pypi.python.org/pypi/django-cked/
-    :alt: License
