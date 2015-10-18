@@ -32,7 +32,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 
-    include_package_data=True
+    include_package_data=True,
     install_requires=[
         'six',
     ]
