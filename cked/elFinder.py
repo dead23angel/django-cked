@@ -11,6 +11,7 @@ import sys
 import re
 import shutil
 import time
+import six
 from datetime import datetime
 
 class connector():
@@ -430,12 +431,13 @@ class connector():
             if not isinstance(upFiles, dict):
                 self._response['error'] = 'Invalid parameters'
                 return
-
+				
             self._response['select'] = []
             total = 0
             upSize = 0
             maxSize = self._options['uploadMaxSize'] * 1024 * 1024
-            for name, data in upFiles.iteritems():
+
+            for name, data in six.iteritems(upFiles):
                 if name:
                     total += 1
                     name = os.path.basename(name)
@@ -450,8 +452,8 @@ class connector():
                             f.close()
                             upSize += os.lstat(name).st_size
                             if self.__isUploadAllow(name):
-                                os.chmod(name, int(self._fileoptions['fileMode']))
-                                self._response['select'].append(self.__hash(name))
+                                os.chmod(name, int(self._options['fileMode']))
+                                self._response['select'].append(self.__hash(name, True))
                             else:
                                 self.__errorData(name, 'Not allowed file type')
                                 try:
@@ -466,15 +468,16 @@ class connector():
                                 self.__errorData(name, 'File exceeds the maximum allowed filesize')
                             except:
                                 pass
-                                    # TODO ?
+                                # TODO ?
                                 self.__errorData(name, 'File was only partially uploaded')
                             break
-            if self._errorData:
-                if len(self._errorData) == total:
-                    self._response['error'] = 'Unable to upload files'
-                else:
-                    self._response['error'] = 'Some files was not uploaded'
 
+            #if self._errorData:
+            #    if len(self._errorData) == total:
+            #        self._response['error'] = 'Unable to upload files'
+            #    else:
+            #        self._response['error'] = 'Some files was not uploaded'
+					
             self.__content(curDir, False)
             return
 
