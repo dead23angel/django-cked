@@ -76,7 +76,7 @@ Widget
     class MyForm(forms.Form):
         text = forms.CharField(widget=CKEditorWidget)
 
-**NOTE**: If you are using custom forms, dont’r forget to include form
+**NOTE**: If you are using custom forms, dont'r forget to include form
 media to your template:
 
 ::
