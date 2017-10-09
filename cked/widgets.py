@@ -57,7 +57,7 @@ Widget providing CKEditor for Rich Text Editing.
         if value is None:
             value = ''
 
-        final_attrs = self.build_attrs(attrs, name=name)
+        final_attrs = self.build_attrs(self.attrs, attrs, name=name)
 
         self.options['filebrowserBrowseUrl'] = reverse('cked_elfinder')
 
@@ -67,3 +67,13 @@ Widget providing CKEditor for Rich Text Editing.
             'id': final_attrs['id'],
             'options': json_encode(self.options)})
         )
+
+    def build_attrs(self, base_attrs, extra_attrs=None, **kwargs):
+        """
+        Helper function for building an attribute dictionary.
+        This is combination of the same method from Django<=1.10 and Django1.11+
+        """
+        attrs = dict(base_attrs, **kwargs)
+        if extra_attrs:
+            attrs.update(extra_attrs)
+        return attrs
