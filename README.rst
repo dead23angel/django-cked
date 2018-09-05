@@ -19,7 +19,7 @@ or
 
 ::
 
-    pip install -e hg+https://bitbucket.org/CWTeam/django-cked#egg=django-cked
+    pip install -e git+git://github.com/dead23angel/django-cked.git@master
 
 Configuration
 -------------
@@ -83,5 +83,5 @@ media to your template:
 
     {{ form.media }}
 
-.. |CKEditor| image:: https://bitbucket.org/CWTeam/django-cked/raw/default/img/ckeditor.jpg
-.. |elFinder| image:: https://bitbucket.org/CWTeam/django-cked/raw/default/img/elfinder.jpg
+.. |CKEditor| image:: https://github.com/dead23angel/django-cked/blob/master/img/ckeditor.jpg
+.. |elFinder| image:: https://github.com/dead23angel/django-cked/blob/master/img/elfinder.jpg
