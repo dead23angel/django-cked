@@ -55,7 +55,7 @@ Widget providing CKEditor for Rich Text Editing.
                 raise ImproperlyConfigured('CKEDITOR_OPTIONS setting must be'
                                            ' a dictionary type.')
 
-    def render(self, name, value, attrs={}):
+    def render(self, name, value, attrs={}, renderer=None):
         if value is None:
             value = ''
 
